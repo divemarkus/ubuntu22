@@ -21,15 +21,21 @@ sudo apt install htop neofetch curl git-all zsh wget btop nvtop konsole
 ### [Setup oh-my-zsh](https://ohmyz.sh/)
 - Give Robbie Russell a visit & tip
 - https://github.com/ohmyzsh/ohmyzsh/wiki
+- Make sure you're working on '~/' directory so when you git clone, the files are on the correct path
 - Steps are to install ohmyzsh, nerdfonts, powerline10k theme, and edit source file '~/.zshrc'
 - It is also highly encouraged to install plugins, 'zsh-autosuggestions' and 'zsh-syntax-highlighting'
-- Warning: we are changing your default shell from bash to zsh
+- Warning! we are changing your default shell from bash to zsh
 ```
 chsh -s $(which zsh)
 ```
 - Verify
 ```
 echo $SHELL
+```
+- Install both plugins
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestion
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
 - NerdFonts and PowerLevel10k has their own repo. Follow instructions to installs
 - [PowerLevel10](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh)
