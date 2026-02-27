@@ -85,7 +85,7 @@ btop
 nvtop
 ```
 
-## Firewall
+### Firewall
 - For internal use, firewall can be disabled
 - Segment this device, behind an enterprise-class or same feature sets
 ```
@@ -93,7 +93,13 @@ sudo ufw status
 sudo ufw allow ssh
 ```
 
-## Projects
+### Tools
++ https://geminicli.com/
++ https://opencode.ai/
++ https://claude.ai/
++ https://openclaw.ai/
+
+### Projects
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 git clone https://github.com/comfyanonymous/ComfyUI
