@@ -15,7 +15,7 @@ sudo systemctl status ssh
 
 ### Basic installs
 ```
-sudo apt install htop neofetch curl git-all zsh wget btop nvtop
+sudo apt install htop neofetch curl git-all zsh wget btop nvtop konsole
 ```
 
 ### [Setup oh-my-zsh](https://ohmyz.sh/)
@@ -61,12 +61,14 @@ sudo apt install tensorrt
 sudo reboot
 ```
 
-### Options
+### Command-lines
+- Some of our most used commands
 ```
-sudo apt install konsole
-
 watch -n 1 free -m
 watch -n 1 nvidia-smi
+htop
+btop
+nvtop
 ```
 
 ## Firewall
