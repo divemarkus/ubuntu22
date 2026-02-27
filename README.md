@@ -15,7 +15,7 @@ sudo systemctl status ssh
 
 ### Basic installs
 ```
-sudo apt install htop neofetch curl git-all zsh wget btop nvtop konsole
+sudo apt install curl git zsh wget btop nvtop htop neofetch konsole
 ```
 
 ### [Setup oh-my-zsh](https://ohmyz.sh/)
