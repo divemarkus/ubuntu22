@@ -56,7 +56,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ```
 - Then load the fonts, so your Terminal or Konsole can see them
 - Click on Terminal or Konsole, your default profile and load the desired font. If you only installed Meslo, then that's what you get
-- Once completed, you will need to run 'p10 configure' to finalize the look and feel. You can run this as many times as you want, changing fonts/themes/etc
+- Once completed, you will need to load the font 'fc-cache' run 'p10 configure' to finalize the look and feel
+- You can run 'p10 configure' as many times as you want, changing fonts/themes/etc
 ```
 source ~/.zshrc
 fc-cache -fv
