@@ -22,6 +22,7 @@ sudo apt install htop neofetch curl git-all zsh wget btop nvtop
 - Give Robbie Russell a visit & tip
 - https://github.com/ohmyzsh/ohmyzsh/wiki
 - Steps are to install ohmyzsh, nerdfonts, powerline10k theme, and edit source file '~/.zshrc'
+- It is also highly encouraged to install plugins, 'zsh-autosuggestions' and 'zsh-syntax-highlighting'
 - Warning: we are changing your default shell from bash to zsh
 ```
 chsh -s $(which zsh)
@@ -34,10 +35,12 @@ echo $SHELL
 - [PowerLevel10](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh)
 - [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
 - Make sure both theme and fonts are installed
-- Once installed, you will need to edit '~/.zshrc' to change theme from robbyrussell to powerlevel10k/powerlevel10k
+- Once installed, you will need to edit '~/.zshrc' to change theme from robbyrussell to powerlevel10k/powerlevel10k, and add plugins
 ```
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ```
 - Then load the fonts, so your Terminal or Konsole can see them
 - Click on Terminal or Konsole, your default profile and load the desired font (there's many, pick one)
