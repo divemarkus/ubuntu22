@@ -1,5 +1,7 @@
 # ubuntu22
-Ubuntu 22.04 Getting Started
+- Ubuntu 22.04 Getting Started
+- Assuming the system has NVIDIA GPU
+- Focus on ML
 
 # remote access
 ```
@@ -12,7 +14,7 @@ sudo systemctl status ssh
 
 # basic installs
 ```
-sudo apt install htop neofetch curl git-all zsh wget
+sudo apt install htop neofetch curl git-all zsh wget btop nvtop
 ```
 
 # setup oh-my-zsh
@@ -39,12 +41,6 @@ sudo apt install konsole
 
 watch -n 1 free -m
 watch -n 1 nvidia-smi
-
-sudo apt install nvtop
-nvtop
-
-sudo apt install btop
-btop
 ```
 
 # firewall
