@@ -31,8 +31,16 @@ chsh -s $(which zsh)
 echo $SHELL
 ```
 - NerdFonts and PowerLevel10k has their own repo. Follow instructions to installs
-- https://github.com/ryanoasis/nerd-fonts
-- https://github.com/romkatv/powerlevel10k
+- [PowerLevel10](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh)
+- [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
+- Make sure both theme and fonts are installed
+- Once installed, you will need to edit '~/.zshrc' to change theme from robbyrussell to powerlevel10k/powerlevel10k
+```
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
+- Then load the fonts, so your Terminal or Konsole can see them
+- Click on Terminal or Konsole, your default profile and load the desired font (there's many, pick one)
 ```
 fc-cache -fv
 fc-list | grep -i "Nerd"
