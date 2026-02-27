@@ -20,6 +20,7 @@ sudo apt install htop neofetch curl git-all zsh wget btop nvtop
 
 ### [Setup oh-my-zsh](https://ohmyz.sh/)
 - Give Robbie Russell a visit & tip
+- https://github.com/ohmyzsh/ohmyzsh/wiki
 - Steps are to install ohmyzsh, nerdfonts, powerline10k theme, and edit source file '~/.zshrc'
 - Warning: we are changing your default shell from bash to zsh
 ```
