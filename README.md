@@ -138,7 +138,18 @@ docker run --rm --gpus all nvidia/cuda:12.3.2-runtime-ubuntu22.04 nvidia-smi
 mkdir -p ~/docker-stack
 cd ~/docker-stack
 ```
-- When everything is ready, feel free to run 'docker compose up -d', using the docker-compose.yml file in this repo
+- When everything is ready, feel free to clone or run docker-compose.yml file in this repo
+```
+docker compose up -d
+```
+- This may take sometime. Get your Web Browsers ready and test remote (using your ip address)
+```
+http://open-webui:8080
+http://frigate:5000
+http://portainer:9443
+http://netdata:19999
+http://jellyfin:8096
+```
 
 ### Command-lines
 - Some of our most used commands
