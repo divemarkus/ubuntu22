@@ -160,7 +160,8 @@ Create a project directory and start your services:
 mkdir -p ~/docker-stack && cd ~/docker-stack
 ```
 
-Run the following command to deploy your containers:
+Run the following command to deploy your containers
+- docker-compose.yml file provided:
 ```bash
 docker compose up -d
 ```
