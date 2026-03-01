@@ -75,17 +75,14 @@ This configuration ensures that Netdata can monitor NVIDIA GPUs by exposing nece
 
 #### CLI Tools:
 
-- **Netdata CLI**: Fetch RAM usage data from Netdata.
+- Use the following, if installed.
 
   ```bash
-  # Example command to check RAM usage
-  netdata-printer.py --url=http://localhost:19999 "system.memory.used" | tail -n 1
-  ```
-  - **NVIDIA-SMI**: Fetch GPU usage data.
-
-  ```bash
-  # Example command to check RAM usage
-  netdata-printer.py --url=http://localhost:19999 "system.memory.used" | tail -n 1
+  watch -n 1 free -m
+  watch -n 1 nvidia-smi
+  htop
+  btop
+  nvtop
   ```
 
 ## Use Cases
