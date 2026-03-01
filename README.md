@@ -77,7 +77,7 @@ sudo reboot
 ```
 
 ### Docker
-- Install, setup Docker and deploy containers
+- Install Docker
 ```
 sudo apt update
 
@@ -98,12 +98,39 @@ https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt update
-
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo usermod -aG docker $USER
 ```
+
+### NVIDIA Container Toolkit
+- Install NVIDIA Container Toolkit
+```
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
+sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt install -y nvidia-container-toolkit
+
+sudo nvidia-ctk runtime configure --runtime=docker
+
+sudo systemctl restart docker
+```
+- Test GPU inside Docker
+```
+docker run --rm --gpus all nvidia/cuda:12.3.2-runtime-ubuntu22.04 nvidia-smi
+```
+
+### Docker Deployment
+- Create project directory and change directory
+```
+mkdir -p ~/docker-stack
+cd ~/docker-stack
+```
+- When everything is ready, feel free to run 'docker compose up -d', using the docker-compose.yml file in this repo
 
 ### Command-lines
 - Some of our most used commands
