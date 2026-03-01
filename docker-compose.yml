@@ -64,8 +64,19 @@ services:
       - SYS_PTRACE
     security_opt:
       - apparmor:unconfined
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     volumes:
       - ./netdata:/etc/netdata
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
 
   portainer:
