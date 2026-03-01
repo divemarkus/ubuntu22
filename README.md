@@ -151,6 +151,17 @@ http://netdata:19999
 http://jellyfin:8096
 ```
 
+### Run models locally (preferred)
+- You can pick list of models from Ollama's Web site
+- Here's an example 'llam3.2'
+```
+docker exec -it ollama ollama run llama3.2
+```
+- Here's a bigger model. Heads-up, make sure you have enough RAM/VRAM
+```
+docker exec -it ollama ollama pull deepseek/r1-16b
+```
+
 ### Command-lines
 - Some of our most used commands
 ```
