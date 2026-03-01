@@ -77,7 +77,11 @@ response = context.request(
 print(response)
 ```
 
-This example demonstrates how MCP can orchestrate requests across multiple AI services, enhancing the capabilities of Open Web UI. Also, check-out https://docs.docker.com/ai/mcp-catalog-and-toolkit/toolkit/
+This example demonstrates how MCP can orchestrate requests across multiple AI services, enhancing the capabilities of Open Web UI. 
+
+----
+
+Also, check-out https://docs.docker.com/ai/mcp-catalog-and-toolkit/toolkit/
 
 ## Conclusion
 MCP is a vital component of Open Web UI, enabling the integration of diverse AI models and services. By supporting both local and external models, MCP provides developers with a powerful toolset to build sophisticated AI-driven applications. For more detailed information and specifications, please refer to the official documentation or resources provided by Open Web UI.
