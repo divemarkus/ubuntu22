@@ -146,6 +146,10 @@ Run models locally using Docker:
   ```
 - Example for a larger model (requires sufficient resources):
   ```bash
+  docker exec -it ollama ollama run deepseek-r1:8b
+  ```
+- And if you're not poor:
+  ```bash
   docker exec -it ollama ollama run deepseek-r1:14b
   ```
 
