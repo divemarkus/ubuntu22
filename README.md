@@ -76,6 +76,14 @@ sudo apt install tensorrt
 sudo reboot
 ```
 
+### LLM runner like Ollama or LM Studio
+- There's several to discuss, but the easiest is Ollama
+- Go to their Web site and install
+```
+curl -fsSL https://ollama.com/install.sh | sh
+```
+- https://lmstudio.ai
+
 ### Docker
 - Install Docker
 ```
