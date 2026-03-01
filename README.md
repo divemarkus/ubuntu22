@@ -159,7 +159,7 @@ docker exec -it ollama ollama run llama3.2
 ```
 - Here's a bigger model. Heads-up, make sure you have enough RAM/VRAM
 ```
-docker exec -it ollama ollama pull deepseek/r1-16b
+docker exec -it ollama ollama run deepseek-r1:14b
 ```
 
 ### Command-lines
