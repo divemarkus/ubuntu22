@@ -18,7 +18,8 @@ sudo systemctl status ssh
 sudo apt install curl git zsh wget btop nvtop htop neofetch konsole
 ```
 
-### [Setup oh-my-zsh](https://ohmyz.sh/)
+### Optional > skip to Drivers
+#### [Setup oh-my-zsh](https://ohmyz.sh/)
 - Give Robbie Russell a visit & tip
 - https://github.com/ohmyzsh/ohmyzsh/wiki
 - Make sure you're working on '~/' directory so when you git clone, the files are on the correct path
@@ -73,6 +74,35 @@ sudo ubuntu-drivers install
 nvidia-smi
 sudo apt install tensorrt
 sudo reboot
+```
+
+### Docker
+- Install, setup Docker and deploy containers
+```
+sudo apt update
+
+sudo apt install -y \
+ca-certificates \
+curl \
+gnupg \
+lsb-release
+
+sudo install -m 0755 -d /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo usermod -aG docker $USER
 ```
 
 ### Command-lines
