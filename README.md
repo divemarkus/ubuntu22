@@ -18,7 +18,7 @@ sudo systemctl status ssh
 sudo apt install curl git zsh wget btop nvtop htop neofetch konsole
 ```
 
-### Optional > skip to Drivers
+### Optional > [skip to Drivers](https://github.com/divemarkus/ubuntu22?tab=readme-ov-file#drivers)
 #### [Setup oh-my-zsh](https://ohmyz.sh/)
 - Give Robbie Russell a visit & tip
 - https://github.com/ohmyzsh/ohmyzsh/wiki
