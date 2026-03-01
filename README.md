@@ -220,4 +220,4 @@ Install PyTorch and related libraries:
 
 ---
 
-This guide provides a comprehensive setup for an Ubuntu 22.04 system tailored for machine learning tasks. Each section is designed to be clear and self-contained, allowing you to follow along easily.
+This guide provides a comprehensive setup for an Ubuntu 22.04 system tailored for machine learning tasks.
