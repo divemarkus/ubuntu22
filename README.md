@@ -4,7 +4,7 @@
 - Focus on ML
 
 ### Remote access
-- Once you install, enable ssh, make sure to edit sshd_conf file to add line 'permitrootlogin no'
+- Once you install, enable ssh, edit sshd_conf file to add line 'permitrootlogin no'
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install openssh-server -y
@@ -22,7 +22,7 @@ sudo apt install curl git zsh wget btop nvtop htop neofetch konsole
 #### [Setup oh-my-zsh](https://ohmyz.sh/)
 - Give Robbie Russell a visit & tip
 - https://github.com/ohmyzsh/ohmyzsh/wiki
-- Make sure you're working on '~/' directory so when you git clone, the files are on the correct path
+- Change to working home directory 'cd ~/'
 - Steps are to install ohmyzsh, nerdfonts, powerline10k theme, and edit source file '~/.zshrc'
 - It is also highly encouraged to install plugins, 'zsh-autosuggestions' and 'zsh-syntax-highlighting'
 - Warning! we are changing your default shell from bash to zsh
@@ -150,6 +150,7 @@ http://portainer:9443
 http://netdata:19999
 http://jellyfin:8096
 ```
+- Netdata should show GPU stat
 
 ### Run models locally (preferred)
 - You can pick list of models from Ollama's Web site
