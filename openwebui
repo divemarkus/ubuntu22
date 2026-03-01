@@ -1,0 +1,11 @@
+
+# OpenWebUI
+All about OpenWebUI, read here: https://openwebui.com/
+
+## Environment
+- If you have followed the instructions provided in the readme, you should have spun a container with OpenWebUI
+- We also downloaded opensource models and not connected to any hosting services
+- OpenWebUI has capabilities to connect to hosted models
+- In this example we will add API keys from openai to OpenWebUI
+- Go here: https://platform.openai.com/settings/organization/api-keys
+- Once you have openai API keys...
