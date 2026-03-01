@@ -216,11 +216,7 @@ sudo ufw allow ssh
 ## Projects
 
 Install PyTorch and related libraries:
-```bash
-pip install torch torchvision torchaudio transformers
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject && git checkout main
-```
+
 
 ---
 
