@@ -4,9 +4,9 @@
 
 ## Open Web UI
 - Open Web UI is a self-hosted AI interface that empowers you to interact with local AI models or external APIs. 
--- It provides a user-friendly dashboard to manage and deploy AI models locally using tools like [Ollama](https://ollama.ai/), 
--- enabling self-hosted model serving without relying on the cloud. Additionally, 
--- Open Web UI supports integration with hosted models through APIs (e.g., OpenAI) by utilizing API keys for seamless external access.
+it provides a user-friendly dashboard to manage and deploy AI models locally using tools like [Ollama](https://ollama.ai/), 
+enabling self-hosted model serving without relying on the cloud. Additionally, 
+Open Web UI supports integration with hosted models through APIs (e.g., OpenAI) by utilizing API keys for seamless external access.
 
 ---
 
