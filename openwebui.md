@@ -1,0 +1,30 @@
+
+# OpenWebUI
+- [Open Web UI](https://openwebui.com/)
+
+## Open Web UI
+- Open Web UI is a self-hosted AI interface that empowers you to interact with local AI models or external APIs. 
+-- It provides a user-friendly dashboard to manage and deploy AI models locally using tools like [Ollama](https://ollama.ai/), 
+-- enabling self-hosted model serving without relying on the cloud. Additionally, 
+-- Open Web UI supports integration with hosted models through APIs (e.g., OpenAI) by utilizing API keys for seamless external access.
+
+---
+
+### Environment
+- If you have followed the instructions provided in the readme, you should have spun a container with OpenWebUI
+- We also downloaded opensource models, like deepseek and llama
+- OpenWebUI has capabilities to connect to hosted models
+- Login to your openai account and create an API key
+- Go here: https://platform.openai.com/settings/organization/api-keys
+- Add API key from openai to OpenWebUI admin panel, specifically for openai
+- Once you have openai API keys added, you will see additional models from openai
+- Be careful using hosted models as they cost money. Some will cost between $100 to $500 a month
+- The measure of how much you get charged are tokens
+
+---
+
+For more details about Open Web UI, visit the official documentation at [https://docs.openwebui.com/](https://docs.openwebui.com/).
+
+--- 
+
+This section provides a clear overview of Open Web UI's capabilities and how to deploy it locally using Docker.
