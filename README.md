@@ -1,171 +1,202 @@
-# Ubuntu22
-- Ubuntu 22.04 Getting Started
-- Assuming the system has NVIDIA GPU
-- Focus on ML
+# Ubuntu 22.04 Setup Guide for Machine Learning
 
-### Remote access
-- Once you install, enable ssh, edit sshd_conf file to add line 'permitrootlogin no'
-```
-sudo apt update && sudo apt upgrade
-sudo apt install openssh-server -y
-sudo systemctl start ssh
-sudo systemctl enable ssh
-sudo systemctl status ssh
-```
+This guide provides instructions to set up an Ubuntu 22.04 system optimized for machine learning tasks with NVIDIA GPU support.
 
-### Basic installs
-```
-sudo apt install curl git zsh wget btop nvtop htop neofetch konsole
-```
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [System Preparation](#system-preparation)
+3. [Shell Customization](#shell-customization)
+4. [NVIDIA Drivers and CUDA Setup](#nvidia-drivers-and-cuda-setup)
+5. [Docker Installation](#docker-installation)
+6. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
+7. [Model Deployment](#model-deployment)
+8. [Optional Tools and Projects](#optional-tools-and-projects)
 
-### Optional > [skip to Drivers](https://github.com/divemarkus/ubuntu22?tab=readme-ov-file#drivers)
-#### [Setup oh-my-zsh](https://ohmyz.sh/)
-- Give Robbie Russell a visit & tip
-- https://github.com/ohmyzsh/ohmyzsh/wiki
-- Change to working home directory 'cd ~/'
-- Steps are to install ohmyzsh, nerdfonts, powerline10k theme, and edit source file '~/.zshrc'
-- It is also highly encouraged to install plugins, 'zsh-autosuggestions' and 'zsh-syntax-highlighting'
-- Warning! we are changing your default shell from bash to zsh
-```
-chsh -s $(which zsh)
-```
-- Verify
-```
-echo $SHELL
-```
-- Install both plugins
-```
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestion
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-```
-- NerdFonts and PowerLevel10k has their own repo. Follow instructions to installs
-- [PowerLevel10](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh)
-- [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
-- Here's what I did (see below, if you don't want to mess with reading both repo's above, skipping nerdfonts):
-```
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+---
 
-mkdir -p ~/.local/share/fonts\ncd ~/.local/share/fonts\n\nwget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf\nwget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf\nwget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf\nwget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.tt
-```
-- Make sure both theme and fonts are installed
-- Once installed, you will need to edit '~/.zshrc' to change theme from robbyrussell to powerlevel10k/powerlevel10k, and add plugins
-```
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+## Prerequisites
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-```
-- Then load the fonts, so your Terminal or Konsole can see them
-- Click on Terminal or Konsole, your default profile and load the desired font. If you only installed Meslo, then that's what you get
-- Once completed, you will need to load the font 'fc-cache' run 'p10 configure' to finalize the look and feel
-- You can run 'p10 configure' as many times as you want, changing fonts/themes/etc
-```
-source ~/.zshrc
-fc-cache -fv
-fc-list | grep -i "Meslo"
-echo -e "\uf00c \uf015 \ue706 \uf17c"
-p10k configure
+### Remote Access Configuration
+Enable SSH access to your system for remote management.
+
+1. Update your system packages:
+   ```bash
+   sudo apt update && sudo apt upgrade
+   ```
+
+2. Install and enable the OpenSSH server:
+   ```bash
+   sudo apt install openssh-server -y
+   sudo systemctl start ssh
+   sudo systemctl enable ssh
+   sudo systemctl status ssh
+   ```
+
+---
+
+## System Preparation
+
+### Basic Software Installation
+Install essential tools for system monitoring and development:
+```bash
+sudo apt install curl git zsh wget btop nvtop htop neofetch konsole -y
 ```
 
-### Drivers
-- We are assuming you have NVIDIA graphics card
-```
+---
+
+## Shell Customization
+
+Switch from Bash to Zsh for a more powerful shell experience.
+
+1. Install Zsh:
+   ```bash
+   sudo apt install zsh -y
+   ```
+
+2. Change your default shell to Zsh:
+   ```bash
+   chsh -s $(which zsh)
+   ```
+
+3. Verify the change:
+   ```bash
+   echo $SHELL
+   ```
+
+4. Install Oh My Zsh and PowerLevel10k theme:
+   - Visit [Oh My Zsh](https://ohmyz.sh/) for detailed instructions.
+   - Clone the PowerLevel10k theme:
+     ```bash
+     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+     ```
+   - Install Nerd Fonts:
+     ```bash
+     mkdir -p ~/.local/share/fonts
+     cd ~/.local/share/fonts
+     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+     ```
+
+5. Configure Zsh settings in `~/.zshrc`:
+   ```bash
+   plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+   ZSH_THEME="powerlevel10k/powerlevel10k"
+   ```
+   Apply changes:
+   ```bash
+   source ~/.zshrc
+   fc-cache -fv
+   p10k configure
+   ```
+
+---
+
+## NVIDIA Drivers and CUDA Setup
+
+### Install NVIDIA Drivers
+```bash
 sudo ubuntu-drivers install
 nvidia-smi
+```
+
+### Install TensorRT (Optional)
+```bash
 sudo apt install tensorrt
+```
+
+Reboot your system to apply changes:
+```bash
 sudo reboot
 ```
 
-### LLM runner like Ollama or LM Studio
-- There's several to discuss, but the easiest is Ollama
-- Go to their Web site and install
-```
-curl -fsSL https://ollama.com/install.sh | sh
-```
-- https://lmstudio.ai
+---
 
-### Docker
-- Install Docker
-```
+## Docker Installation
+
+Install Docker and necessary dependencies:
+```bash
 sudo apt update
-
-sudo apt install -y \
-ca-certificates \
-curl \
-gnupg \
-lsb-release
-
-sudo install -m 0755 -d /etc/apt/keyrings
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
-sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-echo \
-"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-https://download.docker.com/linux/ubuntu \
-$(lsb_release -cs) stable" | \
-sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
+Add your user to the Docker group:
+```bash
 sudo usermod -aG docker $USER
 ```
 
-### NVIDIA Container Toolkit
-- Install NVIDIA Container Toolkit
+---
+
+## LLM Runner Setup (Ollama)
+
+Install Ollama from their official website:
+```bash
+curl -fsSL https://ollama.ai/install.sh | sh
 ```
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
-sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
 
-curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+Run models locally using Docker:
+- Example for a smaller model:
+  ```bash
+  docker exec -it ollama ollama run llama3.2
+  ```
+- Example for a larger model (requires sufficient resources):
+  ```bash
+  docker exec -it ollama ollama run deepseek-r1:14b
+  ```
 
+---
+
+## Model Deployment
+
+### Docker Deployment
+
+Create a project directory and start your services:
+```bash
+mkdir -p ~/docker-stack && cd ~/docker-stack
+```
+
+Run the following command to deploy your containers:
+```bash
+docker compose up -d
+```
+
+Access your deployed services at:
+- Open Web UI: `http://open-webui:8080`
+- Frigate: `http://frigate:5000`
+- Portainer: `http://portainer:9443`
+- Netdata: `http://netdata:19999`
+- Jellyfin: `http://jellyfin:8096`
+
+---
+
+## NVIDIA Container Toolkit
+
+Install the NVIDIA Container Toolkit to leverage GPU resources in Docker:
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#' | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 sudo apt install -y nvidia-container-toolkit
-
 sudo nvidia-ctk runtime configure --runtime=docker
-
 sudo systemctl restart docker
 ```
-- Test GPU inside Docker
-```
+
+Test GPU functionality in Docker:
+```bash
 docker run --rm --gpus all nvidia/cuda:12.3.2-runtime-ubuntu22.04 nvidia-smi
 ```
 
-### Docker Deployment
-- Create project directory and change directory
-```
-mkdir -p ~/docker-stack
-cd ~/docker-stack
-```
-- When everything is ready, feel free to clone or run docker-compose.yml file in this repo
-```
-docker compose up -d
-```
-- This may take sometime. Get your Web Browsers ready and test remote (using your ip address)
-```
-http://open-webui:8080
-http://frigate:5000
-http://portainer:9443
-http://netdata:19999
-http://jellyfin:8096
-```
-- Netdata should show GPU stat
+---
 
-### Run models locally (preferred)
-- You can pick list of models from Ollama's Web site
-- Here's an example 'llam3.2'
-```
-docker exec -it ollama ollama run llama3.2
-```
-- Here's a bigger model. Heads-up, make sure you have enough RAM/VRAM
-```
-docker exec -it ollama ollama run deepseek-r1:14b
-```
+## Optional Tools and Projects
 
-### Command-lines
-- Some of our most used commands
-```
+### Additional Commands
+Monitor system resources:
+```bash
 watch -n 1 free -m
 watch -n 1 nvidia-smi
 htop
@@ -173,23 +204,23 @@ btop
 nvtop
 ```
 
-### Firewall
-- For internal use, firewall can be disabled
-- Segment this device, behind an enterprise-class or same feature sets
-```
+### Firewall Configuration (Internal Use Only)
+```bash
 sudo ufw status
 sudo ufw allow ssh
 ```
 
-### Tools
-+ https://geminicli.com/
-+ https://opencode.ai/
-+ https://claude.ai/
-+ https://openclaw.ai/
+---
 
-### Projects
+## Projects
+
+Install PyTorch and related libraries:
+```bash
+pip install torch torchvision torchaudio transformers
+git clone https://github.com/yourusername/yourproject.git
+cd yourproject && git checkout main
 ```
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-git clone https://github.com/comfyanonymous/ComfyUI
-https://github.com/virattt/ai-hedge-fund
-```
+
+---
+
+This guide provides a comprehensive setup for an Ubuntu 22.04 system tailored for machine learning tasks. Each section is designed to be clear and self-contained, allowing you to follow along easily.
