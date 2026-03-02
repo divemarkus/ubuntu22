@@ -5,12 +5,11 @@ This guide provides instructions to set up an Ubuntu 22.04 system optimized for 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [System Preparation](#system-preparation)
-3. [Shell Customization](#shell-customization)
-4. [NVIDIA Drivers and CUDA Setup](#nvidia-drivers-and-cuda-setup)
-5. [Docker Installation](#docker-installation)
-6. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
-7. [Model Deployment](#model-deployment)
-8. [Optional Tools and Projects](#optional-tools-and-projects)
+3. [NVIDIA Drivers and CUDA Setup](#nvidia-drivers-and-cuda-setup)
+4. [Docker Installation](#docker-installation)
+5. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
+6. [Model Deployment](#model-deployment)
+7. [Optional Tools and Projects](#optional-tools-and-projects)
 
 ---
 
@@ -46,55 +45,6 @@ Install essential tools for system monitoring and development:
 ```bash
 sudo apt install curl git zsh wget btop nvtop htop neofetch konsole -y
 ```
-
----
-
-## Shell Customization
-
-Switch from Bash to Zsh for a more powerful shell experience.
-
-1. Install Zsh:
-   ```bash
-   sudo apt install zsh -y
-   ```
-
-2. Change your default shell to Zsh:
-   ```bash
-   chsh -s $(which zsh)
-   ```
-
-3. Verify the change:
-   ```bash
-   echo $SHELL
-   ```
-
-4. Install Oh My Zsh and PowerLevel10k theme:
-   - Visit [Oh My Zsh](https://ohmyz.sh/) for detailed instructions.
-   - Clone the PowerLevel10k theme:
-     ```bash
-     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
-     ```
-   - Install Fonts:
-     ```bash
-     mkdir -p ~/.local/share/fonts
-     cd ~/.local/share/fonts
-     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-     wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-     ```
-
-5. Configure Zsh settings in `~/.zshrc`:
-   ```bash
-   plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-   ZSH_THEME="powerlevel10k/powerlevel10k"
-   ```
-   Apply changes:
-   ```bash
-   source ~/.zshrc
-   fc-cache -fv
-   p10k configure
-   ```
 
 ---
 
