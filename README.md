@@ -144,7 +144,7 @@ docker compose up -d
 ```
 
 Access your deployed services at:
-- Open Web UI: `http://open-webui:8080`
+- Open Web UI: `http://open-webui:8080` <-- this is how you will access your chat; terminal should work too
 - Frigate: `http://frigate:5000`
 - Portainer: `http://portainer:9443`
 - Netdata: `http://netdata:19999`
