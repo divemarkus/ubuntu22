@@ -19,7 +19,7 @@ Run your application alonside your AI/Model
 1. Ollama - Supports parallelism by default
 2. [Docker](https://docs.vllm.ai/en/stable/deployment/docker/) - Must define flags/switches on compose file to support parallelism
 3. [Docker Model Runner](https://docs.docker.com/ai/model-runner/)
-4. [LMStudio](https://lmstudio.ai/) - Best for laptop use, doesn't support parallelism. Has awesome UI, just one-click install 
+4. [LMStudio](https://lmstudio.ai/docs/app/advanced/parallel-requests) - Has awesome UI, just one-click install 
 
 ### Remote Access Configuration
 Enable SSH access to your system for remote management.
