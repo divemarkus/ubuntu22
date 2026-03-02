@@ -15,6 +15,10 @@ This guide provides instructions to set up an Ubuntu 22.04 system optimized for 
 ---
 
 ## Prerequisites
+Run your application alonside your AI/Model
+1. Ollama - Supports parallelism
+2. Docker - Must define flags/switches on compose file to support parallelism
+3. LMStudio - Best for laptop use, doesn't support parallelism. Has awesome UI, just one-click install - https://lmstudio.ai/ 
 
 ### Remote Access Configuration
 Enable SSH access to your system for remote management.
