@@ -7,7 +7,7 @@ This guide provides instructions to set up an Ubuntu 22.04 system optimized for 
 2. [System Preparation](#system-preparation)
 3. [NVIDIA Drivers and CUDA Setup](#nvidia-drivers-and-cuda-setup)
 4. [Docker Installation](#docker-installation)
-5. [NVIDIA Container Toolkit](nvidia-container-toolkit)
+5. [NVIDIA Container Toolkit](#nvidia-container-toolkit)
 6. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
 7. [Model Deployment](#model-deployment)
 8. [Optional Tools and Projects](#optional-tools-and-projects)
