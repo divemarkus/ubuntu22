@@ -7,9 +7,10 @@ This guide provides instructions to set up an Ubuntu 22.04 system optimized for 
 2. [System Preparation](#system-preparation)
 3. [NVIDIA Drivers and CUDA Setup](#nvidia-drivers-and-cuda-setup)
 4. [Docker Installation](#docker-installation)
-5. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
-6. [Model Deployment](#model-deployment)
-7. [Optional Tools and Projects](#optional-tools-and-projects)
+5. [NVIDIA Container Toolkit](nvidia-container-toolkit)
+6. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
+7. [Model Deployment](#model-deployment)
+8. [Optional Tools and Projects](#optional-tools-and-projects)
 
 ---
 
@@ -49,21 +50,21 @@ sudo apt install curl git zsh wget btop nvtop htop neofetch konsole -y
 ---
 
 ## NVIDIA Drivers and CUDA Setup
+Our graphics card requires the proprietary drivers to utilize its VRAM effectively
 
 ### Install NVIDIA Drivers
 ```bash
+# Install recommended drivers
 sudo ubuntu-drivers install
+# Verify installation after reboot
 nvidia-smi
 ```
 
 ### Install TensorRT (Optional)
+For high-performance deep learning inference:
 ```bash
 sudo apt install tensorrt
-```
-
-Reboot your system to apply changes:
-```bash
-sudo reboot
+# Reboot
 ```
 
 ---
@@ -83,6 +84,23 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 Add your user to the Docker group:
 ```bash
 sudo usermod -aG docker $USER
+```
+
+## NVIDIA Container Toolkit
+This is the "bridge" that allows Docker containers to access your GPU
+
+Install the NVIDIA Container Toolkit to leverage GPU resources in Docker:
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#' | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+```
+
+Test GPU functionality in Docker:
+```bash
+docker run --rm --gpus all nvidia/cuda:12.3.2-runtime-ubuntu22.04 nvidia-smi
 ```
 
 ---
@@ -131,24 +149,6 @@ Access your deployed services at:
 - Portainer: `http://portainer:9443`
 - Netdata: `http://netdata:19999`
 - Jellyfin: `http://jellyfin:8096`
-
----
-
-## NVIDIA Container Toolkit
-
-Install the NVIDIA Container Toolkit to leverage GPU resources in Docker:
-```bash
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#' | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-sudo apt install -y nvidia-container-toolkit
-sudo nvidia-ctk runtime configure --runtime=docker
-sudo systemctl restart docker
-```
-
-Test GPU functionality in Docker:
-```bash
-docker run --rm --gpus all nvidia/cuda:12.3.2-runtime-ubuntu22.04 nvidia-smi
-```
 
 ---
 
