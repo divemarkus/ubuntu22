@@ -10,7 +10,7 @@ This guide provides instructions to set up an Ubuntu 22.04 system optimized for 
 5. [NVIDIA Container Toolkit](#nvidia-container-toolkit)
 6. [LLM Runner Setup (Ollama)](#llm-runner-setup-ollama)
 7. [Model Deployment](#model-deployment)
-8. [Optional Tools and Projects](#optional-tools-and-projects)
+8. [Monitoring Resources](#monitoring-resources)
 
 ---
 
@@ -113,15 +113,15 @@ curl -fsSL https://ollama.ai/install.sh | sh
 ```
 
 Run models locally using Docker:
-- Example for a smaller model:
+- Example for a smaller model (should be safe for most enthusiast GPU):
   ```bash
   docker exec -it ollama ollama run llama3.2
   ```
-- Example for a larger model (requires sufficient resources):
+- Example for a larger model (warning: read about system requirements first): 
   ```bash
   docker exec -it ollama ollama run deepseek-r1:8b
   ```
-- And if you're not poor:
+- And if you're not poor (warning: read about system requirements first):
   ```bash
   docker exec -it ollama ollama run deepseek-r1:14b
   ```
@@ -138,7 +138,7 @@ mkdir -p ~/docker-stack && cd ~/docker-stack
 ```
 
 Run the following command to deploy your containers
-- docker-compose.yml file provided:
+- docker-compose.yml file provided in this repo:
 ```bash
 docker compose up -d
 ```
@@ -152,10 +152,9 @@ Access your deployed services at:
 
 ---
 
-## Optional Tools and Projects
+## Monitoring Resources
 
-### Additional Commands
-Monitor system resources:
+Useful commands to monitor system resources:
 ```bash
 watch -n 1 free -m
 watch -n 1 nvidia-smi
@@ -164,18 +163,11 @@ btop
 nvtop
 ```
 
-### Firewall Configuration (Internal Use Only)
-```bash
-sudo ufw status
-sudo ufw allow ssh
-```
-
----
-
-## Projects
-
-Install PyTorch and related libraries:
-
+### Additional Tools
+- Part of our deployment is a Docker container of Netdata. 
+- See above on how to access Netdata's Web portal
+- Just continue without creating an account
+- Scroll below: Hardware > NVIDIA (GPU)
 
 ---
 
