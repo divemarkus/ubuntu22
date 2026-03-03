@@ -124,8 +124,8 @@ Updating a Docker container ensures that you have access to the latest features,
 
 ### **Summary:**
 
-- **Command-Line Method** offers flexibility and direct control over the Docker engine, suitable for advanced users.
-- **Portainer Method** provides a user-friendly interface, making it ideal for those less familiar with command-line operations.
+- **Command-Line Method** offers flexibility and direct control over the Docker engine, regardless if Portainer manages them.
+- **Portainer Method** provides a user-friendly interface.
 
 Both methods ensure your Docker containers are up-to-date and secure. Always back up critical data before performing updates to prevent potential downtime or data loss.
 
