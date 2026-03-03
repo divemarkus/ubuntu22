@@ -51,6 +51,7 @@ This configuration ensures that Netdata can monitor NVIDIA GPUs by exposing nece
 - **Netdata Web Interface**: Access real-time metrics on GPU usage through the web interface.
   
   - Navigate to `http://localhost:19999` to access the Netdata dashboard.
+  - Select 'Skip and use the dashboard anonymously' bottom right of dashboard.
   - Look for GPU-related metrics under the "GPU" section, which may include memory utilization, compute activity, and temperature.
 
 #### CLI Tools:
