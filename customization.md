@@ -34,7 +34,13 @@ Switch from Bash to Zsh for a more powerful shell experience.
      wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
      ```
 
-5. Configure Zsh settings in `~/.zshrc`:
+5. Install plugins:
+   - Visit [Oh My Zsh](https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df) for detailed instructions on plugins.
+   ```bash
+   sudo apt install zsh-autosuggestions zsh-syntax-highlighting zsh
+   ```
+
+7. Configure Zsh settings in `~/.zshrc`:
    ```bash
    plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
    ZSH_THEME="powerlevel10k/powerlevel10k"
