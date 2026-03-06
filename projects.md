@@ -4,7 +4,7 @@
 #### Overview
 Collections of projects tackled
 
-- **AI Hedge Fund**: Clone github repo Requires creation of free API keys. 
+- **[AI Hedge Fund](https://github.com/virattt/ai-hedge-fund)**: Clone github repo Requires creation of free API keys. 
 - **AI Hedge Fund 2**: Another AI hedge fund. Update soon...
 
 #### Integration into locally hosted models
